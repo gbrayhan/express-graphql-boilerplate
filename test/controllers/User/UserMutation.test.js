@@ -12,8 +12,10 @@ let api;
 let token;
 
 beforeAll(async () => {
-  api = await beforeAction();
-  token = await getAccessToken();
+  await Promise.all([
+    api = await beforeAction(),
+    token = await getAccessToken(),
+  ]);
 });
 
 afterAll(async () => {

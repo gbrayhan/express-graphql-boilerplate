@@ -4,7 +4,7 @@ const {
   beforeAction,
   afterAction,
 } = require('../../helpers/setup');
-const { User } = require('../../../api/models');
+const { User } = require('../../../api/models/index');
 
 let api;
 

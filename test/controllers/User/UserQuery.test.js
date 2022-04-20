@@ -42,6 +42,6 @@ test('User | query', async () => {
     .expect(200)
     .expect('Content-Type', /json/);
 
-  expect(res.body.data.user[0].username).toBe('test');
+  expect(res.body.data.user[0].username).toContain('test');
   expect(res.body.data.user[0].notes).toEqual([]);
 });

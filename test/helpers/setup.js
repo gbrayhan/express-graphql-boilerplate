@@ -3,7 +3,7 @@ const express = require('express');
 const mapRoutes = require('express-routes-mapper');
 const { ApolloServer } = require('apollo-server-express');
 
-const config = require('../../config/');
+const config = require('../../config/index');
 const database = require('../../config/database');
 const auth = require('../../api/policies/auth.policy');
 const { schema } = require('../../api/graphql');
@@ -61,7 +61,6 @@ const beforeAction = async () => {
 const afterAction = async () => {
   await database.close();
 };
-
 
 module.exports = {
   beforeAction,

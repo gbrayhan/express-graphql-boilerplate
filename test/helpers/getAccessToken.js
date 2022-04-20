@@ -1,5 +1,7 @@
+const short = require('short-uuid');
+
 const authService = require('../../api/services/auth.service');
-const { User } = require('../../api/models');
+const { User } = require('../../api/models/index');
 
 const getAccessToken = async (id) => {
   let token;
@@ -8,10 +10,11 @@ const getAccessToken = async (id) => {
 
     return token;
   }
+  const uuid = short.generate();
 
   const user = await User.create({
-    username: 'test',
-    email: `${Math.random(1 * Math.random(0.5))}testmail@testmail.com`,
+    username: `${uuid}test`,
+    email: `${uuid}testmail@testmail.com`,
     password: 'supersecurepassword',
   });
 

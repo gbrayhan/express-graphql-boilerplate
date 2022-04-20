@@ -5,9 +5,8 @@ const {
   GraphQLString,
 } = require('graphql');
 
-
 const UserInputType = (type) => {
-  let allGraphFields = {};
+  let allGraphFields;
   const standardGraphFields = {
     id: {
       type: new GraphQLNonNull(GraphQLInt),
@@ -37,13 +36,11 @@ const UserInputType = (type) => {
       };
   }
 
-  const userInputType = new GraphQLInputObjectType({
+  return new GraphQLInputObjectType({
     name: `UserInputType${type[0].toUpperCase() + type.slice(1, type.length - 1)}`,
     description: 'This represents a UserInputType',
     fields: allGraphFields,
   });
-
-  return userInputType;
 };
 
 module.exports = { UserInputType };

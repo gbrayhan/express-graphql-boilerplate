@@ -12,10 +12,10 @@ const mapRoutes = require('express-routes-mapper');
 /**
  * server configuration
  */
-const config = require('../config/');
+const config = require('../config/index');
 const auth = require('./policies/auth.policy');
 const dbService = require('./services/db.service');
-const { schema } = require('./graphql');
+const { schema } = require('./graphql/index');
 
 // environment: development, testing, production
 const environment = process.env.NODE_ENV;
